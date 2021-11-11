@@ -132,3 +132,32 @@ export const toLowerCaseAndTrim = (inputObject) => {
   });
   return formattedObject;
 };
+
+
+export const getRequiredMovieData = movieList => movieList.map((movie, index) => ({
+  movieId: (index + 1),
+  title: movie.title,
+  releaseDate: movie.release_date,
+  openingCrawl: movie.opening_crawl,
+  characters: movie.characters,
+  url: movie.url
+}));
+
+export const sortByReleaseDate = sortData => sortData
+  .sort((a, b) => new Date(a.releaseDate) - new Date(b.releaseDate));
+
+export const computeHeight = (data) => {
+  const totalHeight = data
+    .map(height => parseInt(height.height, 10))
+    // eslint-disable-next-line no-restricted-globals
+    .filter(x => !isNaN(x))
+    .reduce((sum, height) => sum + height, 0);
+  const heightInFeet = Number((totalHeight / 30.48).toFixed(0));
+  const heightInInches = Number((totalHeight / 2.54).toFixed(2));
+  const result = {
+    heightInCm: totalHeight,
+    heightInFeet,
+    heightInInches
+  };
+  return result;
+};

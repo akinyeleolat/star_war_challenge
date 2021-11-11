@@ -6,6 +6,7 @@ const config = {
   dev_db_Url: process.env.DATABASE_URL_DEVELOPMENT,
   db_Url: process.env.DATABASE_URL,
   port: process.env.PORT || 8000,
+  api_base_url: process.env.BASE_URL || 'https://swapi.dev/api/',
   env: process.env.NODE_ENV || 'development',
   logDir: process.env.LOGDIR || 'logs',
   tokenExpiry: process.env.TOKEN_EXPIRY,
