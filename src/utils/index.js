@@ -154,34 +154,30 @@ export const getRequiredCharacterData = characterList => characterList.map((char
 export const sortByReleaseDate = sortData => sortData
   .sort((a, b) => new Date(a.releaseDate) - new Date(b.releaseDate));
 
-export const sortDataBy = (data, value, direction) => {
+const sortByName = sortData => sortData.sort((a, b) => {
+  a = a.name.toLowerCase();
+  b = b.name.toLowerCase();
+  return a.localeCompare(b);
+});
+
+const sortByGender = sortData => sortData.sort((a, b) => {
+  const x = a.gender.toLowerCase();
+  const y = b.gender.toLowerCase();
+  return x.localeCompare(y);
+});
+
+const handleSortDirection = (sortData, direction) => (direction === 'desc' ? sortData.reverse() : sortData);
+
+export const sortDataBy = (data, value, direction = 'asc') => {
   let sortedData;
   if (value.toLowerCase() === 'name') {
-    sortedData = data.sort(() => {
-      if (direction.toLowerCase() === 'asc') {
-        return -1;
-      }
-      if (direction.toLowerCase() === 'desc') {
-        return 1;
-      }
-      return 0;
-    });
+    const sortData = sortByName(data);
+    sortedData = handleSortDirection(sortData, direction.toLowerCase());
   } else if (value.toLowerCase() === 'height') {
-    sortedData = data.sort((a, b) => {
-      if (direction.toLowerCase() === 'asc') {
-        return Number(a.height) - Number(b.height);
-      }
-      if (direction.toLowerCase() === 'desc') {
-        return Number(b.height) - Number(a.height);
-      }
-      return 0;
-    });
+    sortedData = data.sort((a, b) => (direction.toLowerCase() === 'desc' ? Number(b.height) - Number(a.height) : Number(a.height) - Number(b.height)));
   } else if (value.toLowerCase() === 'gender') {
-    sortedData = data.sort((a, b) => {
-      const x = a.gender.toLowerCase();
-      const y = b.gender.toLowerCase();
-      return x.localeCompare(y);
-    });
+    const sortData = sortByGender(data);
+    sortedData = handleSortDirection(sortData, direction.toLowerCase());
   } else {
     sortedData = data;
   }

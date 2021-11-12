@@ -103,7 +103,8 @@ class MovieServices {
 
     const filteredData = filterData == null
       ? charData : charData.filter(char => char.gender === filterData);
-    const characterData = sortDataBy(filteredData, sortBy, direction);
+    const characterData = sortBy === null
+      ? filteredData : sortDataBy(filteredData, sortBy, direction);
     const computeCharacterHeight = computeHeight(characterData);
     return {
       success: true,
