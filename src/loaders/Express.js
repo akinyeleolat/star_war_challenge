@@ -66,7 +66,7 @@ class ExpressLoader {
     app.use(ExpressLoader.errorHandler);
 
     // Start application
-    this.server = app.listen(config.port, () => {
+    this.server = app.listen(process.env.PORT || config.port, () => {
       logger.info(`Express running, now listening on port ${config.port}`);
       // console.log(`Express running, now listening on port ${config.port}`);
     }).on('error', ExpressLoader.onError);
