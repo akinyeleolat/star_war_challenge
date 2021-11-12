@@ -52,48 +52,88 @@ Enviroment variables are set in `.env` files and the examples can be seen in `en
 ```
 
 ## API Documentation ( Sample)
-The API documentation can be seen on (https://documenter.getpostman.com/view/5081938/TVev54tn)
+The API documentation can be seen on (https://documenter.getpostman.com/view/5081938/UVC8C5hJ)
 
-Application url: ```https://carbookingng.herokuapp.com```
+Application url: ```https://starwars-ap.herokuapp.com```
 
-## API Endpoint Route
-Currently,
-<table>
-  <tr>
-    <td>HTTP VERB</td>
-    <td>ENDPOINT</td>
-    <td>TASK</td>
-  </tr>
-  <tr>
-    <td>POST</td>
-    <td>/auth/login</td>
-    <td>Login to the application with email and password</td>
-  </tr>
-  <tr>
-    <td>GET</td>
-    <td>/cars</td>
-    <td>Get all the available cars. This without specifying limit and page will only return first 10 cars</td>
-  </tr>
-  <tr>
-    <td>GET</td>
-    <td>cars/?limit=2&page=1</td>
-    <td>Get all availble cars with page and limit set as query  params.
-</td>
-  </tr>
-  <tr>
-    <td>POST</td>
-    <td>/booking</td>
-    <td>Book a car by supplying the carId for currently logged in users</td>
-  </tr>
-  <tr>
-    <td>GET</td>
-    <td>/booking/user</td>
-    <td>Get all the available bookings for current users. This without specifying limit and page will only return first 10 bookings</td>
-  </tr>
-  <tr>
-    <td>GET</td>
-    <td>/booking/user/?limit=2&page=1</td>
-    <td>Get all availble bookings for current users with page and limit set as query  params.
-</td>
-  </tr>
-  </table>
+[comment]: <> (## API Endpoint Route)
+
+[comment]: <> (Currently,)
+
+[comment]: <> (<table>)
+
+[comment]: <> (  <tr>)
+
+[comment]: <> (    <td>HTTP VERB</td>)
+
+[comment]: <> (    <td>ENDPOINT</td>)
+
+[comment]: <> (    <td>TASK</td>)
+
+[comment]: <> (  </tr>)
+
+[comment]: <> (  <tr>)
+
+[comment]: <> (    <td>POST</td>)
+
+[comment]: <> (    <td>/auth/login</td>)
+
+[comment]: <> (    <td>Login to the application with email and password</td>)
+
+[comment]: <> (  </tr>)
+
+[comment]: <> (  <tr>)
+
+[comment]: <> (    <td>GET</td>)
+
+[comment]: <> (    <td>/cars</td>)
+
+[comment]: <> (    <td>Get all the available cars. This without specifying limit and page will only return first 10 cars</td>)
+
+[comment]: <> (  </tr>)
+
+[comment]: <> (  <tr>)
+
+[comment]: <> (    <td>GET</td>)
+
+[comment]: <> (    <td>cars/?limit=2&page=1</td>)
+
+[comment]: <> (    <td>Get all availble cars with page and limit set as query  params.)
+
+[comment]: <> (</td>)
+
+[comment]: <> (  </tr>)
+
+[comment]: <> (  <tr>)
+
+[comment]: <> (    <td>POST</td>)
+
+[comment]: <> (    <td>/booking</td>)
+
+[comment]: <> (    <td>Book a car by supplying the carId for currently logged in users</td>)
+
+[comment]: <> (  </tr>)
+
+[comment]: <> (  <tr>)
+
+[comment]: <> (    <td>GET</td>)
+
+[comment]: <> (    <td>/booking/user</td>)
+
+[comment]: <> (    <td>Get all the available bookings for current users. This without specifying limit and page will only return first 10 bookings</td>)
+
+[comment]: <> (  </tr>)
+
+[comment]: <> (  <tr>)
+
+[comment]: <> (    <td>GET</td>)
+
+[comment]: <> (    <td>/booking/user/?limit=2&page=1</td>)
+
+[comment]: <> (    <td>Get all availble bookings for current users with page and limit set as query  params.)
+
+[comment]: <> (</td>)
+
+[comment]: <> (  </tr>)
+
+[comment]: <> (  </table>)
