@@ -23,3 +23,13 @@ export const getSingleMovies = async (req, res) => {
     return displayError(error, res, error.httpStatusCode);
   }
 };
+
+export const getAllCharacters = async (req, res) => {
+  try {
+    const results = await MovieServiceInstance.getCharacterList(req.query);
+
+    return res.json(results).status(200);
+  } catch (error) {
+    return displayError(error, res, error.httpStatusCode);
+  }
+};
