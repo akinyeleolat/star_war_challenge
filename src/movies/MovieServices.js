@@ -91,6 +91,7 @@ class MovieServices {
    * @returns {object} characterlist
    */
   async getCharacterList(queryParams) {
+    // TODO: refactor to builder pattern
     const { gender: filterData, sortBy, direction } = queryParams;
     const charactersUrl = this.apiBaseUrl.concat('/people');
     const res = await apiGetRequest(charactersUrl);
