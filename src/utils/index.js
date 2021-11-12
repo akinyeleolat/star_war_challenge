@@ -1,4 +1,5 @@
 import bcrypt from 'bcryptjs';
+import axios from 'axios';
 import jwt from 'jsonwebtoken';
 import Validator from 'validatorjs';
 
@@ -139,12 +140,55 @@ export const getRequiredMovieData = movieList => movieList.map((movie, index) =>
   title: movie.title,
   releaseDate: movie.release_date,
   openingCrawl: movie.opening_crawl,
-  characters: movie.characters,
   url: movie.url
+}));
+
+export const getRequiredCharacterData = characterList => characterList.map((character, index) => ({
+  characterId: (index + 1),
+  name: character.name,
+  gender: character.gender,
+  height: character.height,
+  url: character.url
 }));
 
 export const sortByReleaseDate = sortData => sortData
   .sort((a, b) => new Date(a.releaseDate) - new Date(b.releaseDate));
+
+export const sortDataBy = (data, value, direction) => {
+  let sortedData;
+  if (value.toLowerCase() === 'name') {
+    sortedData = data.sort(() => {
+      if (direction.toLowerCase() === 'asc') {
+        return -1;
+      }
+      if (direction.toLowerCase() === 'desc') {
+        return 1;
+      }
+      return 0;
+    });
+  } else if (value.toLowerCase() === 'height') {
+    sortedData = data.sort((a, b) => {
+      if (direction.toLowerCase() === 'asc') {
+        return Number(a.height) - Number(b.height);
+      }
+      if (direction.toLowerCase() === 'desc') {
+        return Number(b.height) - Number(a.height);
+      }
+      return 0;
+    });
+  } else if (value.toLowerCase() === 'gender') {
+    sortedData = data.sort((a, b) => {
+      const x = a.gender.toLowerCase();
+      const y = b.gender.toLowerCase();
+      return x.localeCompare(y);
+    });
+  } else {
+    sortedData = data;
+  }
+  return sortedData;
+};
+
+const toFeetAndInch = inches => (`${parseInt(inches / 12, 10)}ft. ${Math.round(inches % 12, 1)}inches`);
 
 export const computeHeight = (data) => {
   const totalHeight = data
@@ -152,12 +196,27 @@ export const computeHeight = (data) => {
     // eslint-disable-next-line no-restricted-globals
     .filter(x => !isNaN(x))
     .reduce((sum, height) => sum + height, 0);
-  const heightInFeet = Number((totalHeight / 30.48).toFixed(0));
+
   const heightInInches = Number((totalHeight / 2.54).toFixed(2));
-  const result = {
+  const heightInFeetAndInch = toFeetAndInch(heightInInches);
+  return {
     heightInCm: totalHeight,
-    heightInFeet,
-    heightInInches
+    heightInFeetAndInch
   };
-  return result;
+};
+
+export const apiGetRequest = url => axios.get(url);
+
+export const getCharacterDetail = async (characterUrl) => {
+  const res = await axios.get(characterUrl);
+  const {
+    name,
+    gender,
+    height
+  } = res.data;
+  return {
+    name,
+    gender,
+    height
+  };
 };
