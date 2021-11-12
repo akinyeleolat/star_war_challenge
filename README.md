@@ -1,6 +1,6 @@
 [![Build Status](https://travis-ci.com/akinyeleolat/nodejs-starter.svg?token=cwN91MVvrFcs3q4Up8px&branch=main)](https://travis-ci.com/akinyeleolat/nodejs-starter)
-# carBooking
-Car Booking Api
+# StarWars Challenge
+Modified Star wars Api
 
 
 # Application Details
@@ -32,13 +32,13 @@ Enviroment variables are set in `.env` files and the examples can be seen in `en
 
 ## Running the App (Development)
 1. Open terminal and navigate to the root folder.
-2. Run this command on terminal 
+2. Run this command on terminal
 ```
     npm run dev
 ```
 ## Running the App (Production Instance)
 1. Open terminal and navigate to the root folder.
-2. Run this command on terminal 
+2. Run this command on terminal
 ```
     - npm start
 ```
@@ -46,7 +46,7 @@ Enviroment variables are set in `.env` files and the examples can be seen in `en
 
 ## Running the App (Unit testing)
 1. Open terminal and navigate to the root folder.
-2. Run this command on terminal 
+2. Run this command on terminal
 ```
     - npm test
 ```
