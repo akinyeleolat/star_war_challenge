@@ -1,7 +1,7 @@
-import MovieServices from './MovieServices';
+import Movie from '../services/Movie';
 import { displayError } from '../utils';
 
-const MovieServiceInstance = new MovieServices();
+const MovieServiceInstance = new Movie();
 
 
 export const getAllMovies = async (req, res) => {
