@@ -15,7 +15,7 @@ const { api_base_url: apiBaseUrl } = config;
 /**
  * Movie services
  */
-class MovieServices {
+class Movie {
   /**
    * initiate
    */
@@ -120,4 +120,4 @@ class MovieServices {
   }
 }
 
-export default MovieServices;
+export default Movie;
