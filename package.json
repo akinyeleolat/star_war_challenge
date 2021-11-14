@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build-server": "babel src --out-dir dist",
-    "build": "npm run clean && npm run build-server",
+    "build": "npm run clean && npm run build-server && npm install",
     "clean": "rm -rf dist && mkdir dist",
     "test": "NODE_ENV=test nyc mocha ./src/spec/index.spec.js --timeout 5000 --exit",
     "lint": "eslint '**/*js'",
